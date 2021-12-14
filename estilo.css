@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --Strong-cyan: hsl(172, 67%, 45%);
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+    --Dark-grayish-cyan: hsl(186, 14%, 43%);
+    --Dark-grayish-cyan2: hsl(184, 14%, 56%);
+    --Light-grayish-cyan: hsl(185, 41%, 84%);
+    --Light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+body{
+    font-family: 'Space Mono', monospace;
+}
+section{
+    min-height: 100vh;
+    min-width: 375px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    background: hsl(173, 46%, 75%);
+    justify-content: center;
+}
+
+#logo{
+    justify-self: center;
+    margin: .5rem;
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: 1fr;
+    width: 50rem;
+    background:var(--White);
+    padding:2rem;
+    border-radius: 1rem;
+    align-self: flex-start;
+    column-gap: 2rem;
+    margin: .2rem;
+}
+
+/*Primer bloque*/
+
+#introducir{
+    line-height: 3;
+}
+
+.input{
+    display: flex;
+    padding: .5rem;
+    align-items:stretch;
+    border-radius: 0.3rem;
+    background-color: var(--Light-grayish-cyan);
+}
+.numero{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--Light-grayish-cyan);
+    text-align: right;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+}
+input{
+    font-size: 1.5rem;
+    color: var(--Very-dark-cyan);
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    cursor: pointer;
+}
+.img{
+    width: auto;
+    height: 100%;
+    align-self: center;
+    position: relative;
+    top: 53px;
+    left: -37px;
+}
+#img2{
+    left: -291px;
+}
+
+.labels{
+    color:var(--Dark-grayish-cyan);
+    font-weight: 700;
+}
+#oculto{
+    position: relative;
+    color: rgb(235, 122, 122);
+    right: -56px;
+    visibility: hidden;
+}
+
+/*botones*/
+
+#botones{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+[type=button], #custom{
+    height: 2.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-family: 'Space Mono', monospace;
+    background-color: var(--Very-dark-cyan);
+    color: var(--White);
+}
+#custom{
+    background-color:var(--Light-grayish-cyan);
+    color: var(--Dark-grayish-cyan);
+    max-width:106px;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+/*Segundo bloque*/
+
+#resultado{
+    background-color: var(--Very-dark-cyan);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+#solucion{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    row-gap: 2rem;
+    margin-top: 0;
+}
+
+
+#solucion p{
+    color: var(--White);
+}
+#solucion span{
+    color: var(--Dark-grayish-cyan2);
+}
+#solucion h2{
+    color: var(--Strong-cyan);
+    justify-self: right;
+    font-size: 2rem;
+}
+
+[value=RESET]{
+    width: 100%;
+    background-color: hsl(173, 68%, 26%);
+    margin-top: 90px;
+    color: var(--Very-dark-cyan);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+/*Hover input*/
+[type=button]:hover{
+    background-color: hsl(173, 46%, 75%);
+    color: var(--Very-dark-cyan);
+    cursor: pointer;
+}
+
+/*Focus input*/
+.botonesPorcentajes:focus{
+    background-color: var(--Strong-cyan)!important;
+    color: var(--Very-dark-cyan);
+}
+
+
+.focus{
+    border:solid var(--Strong-cyan);
+}
+.inputfocus:focus{
+    border: solid var(--Strong-cyan)!important;
+    color: var(--Very-dark-cyan)!important;
+    outline: none;
+}
+
+/*clases añadadidas a partir javascript*/
+
+.oculto{
+    visibility: visible!important;
+}
+.ocultoLinea{
+    border:solid rgb(235, 122, 122);
+}
+.botonReset{
+    background: var(--Strong-cyan)!important;
+    color: var(--Very-dark-cyan)!important;
+}
+
+@media (max-width:810px){
+    #container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+        width: 370px;
+    }
+    #botones{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #resultado{
+        margin-top: -25px;
+    }
+    [value=RESET]{
+        margin-top: 30px;
+    }
+    #custom{
+        max-width: 145px;
+        text-align: center;
+    }
+    #oculto{
+        right: -12px;
+    }
+    #numeroPersonas{
+        position: relative;
+        top: -43px;
+    }
+    #img2{
+        top: 8px;
+        left: 11px;
+        z-index: 1;
+    }
+}
